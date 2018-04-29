@@ -1,7 +1,8 @@
 
 Rails.application.routes.draw do
-  devise_for :users
+  
   root to: 'pages#home' 
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   # GET request to /about,  rails goes to pages controller, looks up 'about' action (AKA METHOD/FUNCTION)
   get 'about', to: 'pages#about'
   resources :contacts, only: :create
